@@ -9,6 +9,6 @@ class Post < ApplicationRecord
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :user_id, presence: true
   validates :title, presence: true,
-  					length: {maximum: 400}
+  					length: {maximum: 60}
 
 end
