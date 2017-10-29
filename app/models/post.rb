@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  acts_as_votable
   belongs_to :user
   has_many :comments
   
@@ -9,6 +10,6 @@ class Post < ApplicationRecord
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :user_id, presence: true
   validates :title, presence: true,
-  					length: {maximum: 60}
+  					length: {minimum:3, maximum: 60}
 
 end
