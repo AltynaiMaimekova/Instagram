@@ -11,5 +11,6 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true,
   					length: {minimum:3, maximum: 60}
+  scope :of_followed_users, -> (following_users) { where user_id: following_users }
 
 end
